@@ -8,6 +8,7 @@ function TextElement({ text, name, value, id, handleValue, required = false }) {
         onChange={(e) => handleValue(e.target.value)}
         name={name}
         id={id}
+        required={required && true}
       />
     </div>
   );
@@ -30,6 +31,7 @@ function EmailElement({
         onChange={(e) => handleValue(e.target.value)}
         name={name}
         id={id}
+        required={required && true}
       />
     </div>
   );
@@ -52,6 +54,7 @@ function NumberElement({
         onChange={(e) => handleValue(e.target.value)}
         name={name}
         id={id}
+        required={required && true}
       />
     </div>
   );
@@ -74,6 +77,7 @@ function PasswordElement({
         onChange={(e) => handleValue(e.target.value)}
         name={name}
         id={id}
+        required={required && true}
       />
     </div>
   );
