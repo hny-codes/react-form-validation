@@ -1,0 +1,12 @@
+.title {
+  text-align: center;
+}
+
+.form {
+  border: 1px solid white;
+  width: 50%;
+  min-height: 80svh;
+  margin: 3.5rem auto 0;
+  padding: 2rem;
+
+}
