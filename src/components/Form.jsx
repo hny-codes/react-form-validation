@@ -15,8 +15,13 @@ const Form = ({ title }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Success!`);
+  };
+
   return (
-    <form className='form'>
+    <form className='form' onSubmit={handleSubmit}>
       <h1 className='title'>{title}</h1>
       <TextElement
         text={'Name'}
@@ -59,6 +64,9 @@ const Form = ({ title }) => {
         required={true}
       />
       <p>Confirm Password: </p>
+      <div className='btn-submit'>
+        <input type='submit' value="Let's Plan!" />
+      </div>
     </form>
   );
 };
