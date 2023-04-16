@@ -1,11 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import './FormElements.css';
 
 function TextElement({ text, name, value, id, handleValue, required = false }) {
   const inputRef = useRef(null);
 
   function handleValidity(e) {
-    console.log(inputRef.current.validity.typeMismatch);
     if (
       inputRef.current.validity.valueMissing ||
       inputRef.current.validity.tooShort
@@ -49,7 +48,6 @@ function EmailElement({
   const inputRef = useRef(null);
 
   function handleValidity(e) {
-    console.log(inputRef.current.validity.typeMismatch);
     if (
       inputRef.current.validity.typeMismatch ||
       inputRef.current.validity.valueMissing ||
@@ -93,7 +91,6 @@ function NumberElement({
   const inputRef = useRef(null);
 
   function handleValidity(e) {
-    console.log(inputRef.current.validity.typeMismatch);
     if (
       inputRef.current.validity.typeMismatch ||
       inputRef.current.validity.rangeOverflow ||
@@ -140,12 +137,11 @@ function PasswordElement({
   const inputRef = useRef(null);
 
   function handleValidity(e) {
-    console.log(inputRef.current.validity.typeMismatch);
     if (
       inputRef.current.validity.valueMissing ||
       inputRef.current.validity.tooShort
     ) {
-      inputRef.current.setCustomValidity('Invalid username!!');
+      inputRef.current.setCustomValidity('Password too short!!');
       inputRef.current.classList.add('invalid');
       inputRef.current.classList.remove('valid');
     } else {
@@ -183,12 +179,16 @@ function ConfirmPasswordElement({
 }) {
   const inputRef = useRef(null);
 
+  useEffect(() => {
+    if (value !== password) {
+      inputRef.current.setCustomValidity('Invalid matching passwords!!');
+      inputRef.current.classList.add('invalid');
+      inputRef.current.classList.remove('valid');
+    }
+  }, [password, value]);
+
   function handleValidity(e) {
-    console.log(inputRef.current.validity.typeMismatch);
-    if (
-      inputRef.current.validity.valueMissing ||
-      e.target.value != password
-    ) {
+    if (inputRef.current.validity.valueMissing || e.target.value != password) {
       inputRef.current.setCustomValidity('Invalid matching passwords!!');
       inputRef.current.classList.add('invalid');
       inputRef.current.classList.remove('valid');
@@ -216,8 +216,6 @@ function ConfirmPasswordElement({
     </div>
   );
 }
-
-
 
 export {
   TextElement,

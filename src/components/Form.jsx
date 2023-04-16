@@ -21,8 +21,6 @@ const Form = ({ title }) => {
     alert(`Success!`);
   };
 
-  
-
   return (
     <form className='form' onSubmit={handleSubmit}>
       <h1 className='title'>{title}</h1>
