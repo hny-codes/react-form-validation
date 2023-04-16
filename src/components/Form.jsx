@@ -1,6 +1,7 @@
 import './Form.css';
 import { useState } from 'react';
 import {
+  ConfirmPasswordElement,
   EmailElement,
   NumberElement,
   PasswordElement,
@@ -65,7 +66,14 @@ const Form = ({ title }) => {
         id={'password'}
         required={true}
       />
-      <p>Confirm Password: </p>
+      <ConfirmPasswordElement
+        text={'Confirm Password'}
+        name={'confirmPassword'}
+        value={confirmPassword}
+        password={password}
+        handleValue={setConfirmPassword}
+        id={'confirmPassword'}
+      />
       <div className='btn-submit'>
         <input type='submit' value="Let's Plan!" />
       </div>

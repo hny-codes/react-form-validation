@@ -173,4 +173,56 @@ function PasswordElement({
   );
 }
 
-export { TextElement, EmailElement, NumberElement, PasswordElement };
+function ConfirmPasswordElement({
+  text,
+  name,
+  value,
+  password,
+  handleValue,
+  id,
+}) {
+  const inputRef = useRef(null);
+
+  function handleValidity(e) {
+    console.log(inputRef.current.validity.typeMismatch);
+    if (
+      inputRef.current.validity.valueMissing ||
+      e.target.value != password
+    ) {
+      inputRef.current.setCustomValidity('Invalid matching passwords!!');
+      inputRef.current.classList.add('invalid');
+      inputRef.current.classList.remove('valid');
+    } else {
+      inputRef.current.setCustomValidity('');
+      inputRef.current.classList.add('valid');
+      inputRef.current.classList.remove('invalid');
+    }
+    handleValue(e.target.value);
+  }
+
+  return (
+    <div>
+      <label htmlFor={name}>{text}: </label>
+      <input
+        type='password'
+        value={value}
+        onChange={handleValidity}
+        name={name}
+        id={id}
+        required={true}
+        ref={inputRef}
+        minLength={5}
+      />
+    </div>
+  );
+}
+
+
+
+export {
+  TextElement,
+  EmailElement,
+  NumberElement,
+  PasswordElement,
+  ConfirmPasswordElement,
+};
