@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import './FormElements.css';
 
-function TextElement({ text, name, value, id, handleValue, required = false }) {
+function TextElement({ text, name, value, id, handleValue, placeholder, required = false }) {
   const inputRef = useRef(null);
 
   function handleValidity(e) {
@@ -32,6 +32,7 @@ function TextElement({ text, name, value, id, handleValue, required = false }) {
         required={required && true}
         minLength={4}
         ref={inputRef}
+        placeholder={placeholder}
       />
     </div>
   );
@@ -75,6 +76,7 @@ function EmailElement({
         id={id}
         required={required && true}
         ref={inputRef}
+        placeholder='email@mail.com'
       />
     </div>
   );
@@ -86,6 +88,7 @@ function NumberElement({
   value,
   handleValue,
   id,
+  placeholder,
   required = false,
 }) {
   const inputRef = useRef(null);
@@ -121,6 +124,7 @@ function NumberElement({
         min={10000}
         max={99999}
         ref={inputRef}
+        placeholder={placeholder}
       />
     </div>
   );

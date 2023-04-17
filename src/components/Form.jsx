@@ -12,7 +12,7 @@ const Form = ({ title }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [country, setCountry] = useState('');
-  const [zipCode, setZipCode] = useState(0);
+  const [zipCode, setZipCode] = useState(null);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -31,6 +31,7 @@ const Form = ({ title }) => {
           value={name}
           handleValue={setName}
           id={'name'}
+          placeholder={'John Doe'}
           required={true}
         />
         <EmailElement
@@ -49,6 +50,7 @@ const Form = ({ title }) => {
           value={country}
           handleValue={setCountry}
           id={'country'}
+          placeholder={'New Vegas'}
           required={true}
         />
         <NumberElement
@@ -57,6 +59,7 @@ const Form = ({ title }) => {
           value={zipCode}
           handleValue={setZipCode}
           id={'zip'}
+          placeholder={'62451'}
           required={true}
         />
       </div>
