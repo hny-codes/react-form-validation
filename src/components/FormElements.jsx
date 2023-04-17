@@ -21,7 +21,7 @@ function TextElement({ text, name, value, id, handleValue, required = false }) {
   }
 
   return (
-    <div>
+    <div className='form-element'>
       <label htmlFor={name}>{text}: </label>
       <input
         type='text'
@@ -65,7 +65,7 @@ function EmailElement({
   }
 
   return (
-    <div>
+    <div className='form-element'>
       <label htmlFor={name}>{text}: </label>
       <input
         type='email'
@@ -109,7 +109,7 @@ function NumberElement({
   }
 
   return (
-    <div>
+    <div className='form-element'>
       <label htmlFor={name}>{text}: </label>
       <input
         type='number'
@@ -153,7 +153,7 @@ function PasswordElement({
   }
 
   return (
-    <div>
+    <div className='form-element'>
       <label htmlFor={name}>{text}: </label>
       <input
         type='password'
@@ -201,7 +201,7 @@ function ConfirmPasswordElement({
   }
 
   return (
-    <div>
+    <div className='form-element'>
       <label htmlFor={name}>{text}: </label>
       <input
         type='password'

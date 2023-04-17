@@ -1,3 +1,5 @@
+@import '../index.css';
+
 .title {
   text-align: center;
 }
@@ -8,5 +10,31 @@
   min-height: 80svh;
   margin: 3.5rem auto 0;
   padding: 2rem;
+  background-color: var(--clr-bg);
 
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  gap: 5rem;
+}
+
+.form-group {
+  display: grid;
+  grid: 1fr / 1fr 1fr;
+}
+
+.btn-submit {
+  font-weight: bold;
+  place-self: center;
+}
+
+.btn-submit input[type='submit'] {
+  background-color: var(--clr-primary-btn);
+  padding: 1em 2em;
+  cursor: pointer;
+}
+
+.btn-submit input[type='submit']:hover {
+  transform: scale(1.05);
+  outline: 2px solid var(--clr-secondary);
 }

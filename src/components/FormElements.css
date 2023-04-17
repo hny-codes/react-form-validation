@@ -12,6 +12,13 @@ input:focus {
   outline: 2px solid var(--clr-accent);
 }
 
+.form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-inline: 1rem;
+}
+
 .invalid {
   border: 2px solid red;
 }
